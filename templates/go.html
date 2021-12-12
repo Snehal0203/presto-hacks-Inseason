@@ -1,0 +1,375 @@
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>In Season</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" href="    https://media.discordapp.net/attachments/844417162785456128/919091292540129280/1024px-Emoji_u1f338.png?width=630&height=630">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+
+*{
+  font-family: 'Readex Pro', sans-serif;
+}
+
+body{
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#spin{
+  width: 10vw;
+  margin-left: 45vw;
+  margin-right: 45vw;
+  margin-bottom: 6px;
+  margin-top: -60px;
+		-webkit-animation: spin 5s infinite linear;
+}
+
+@-webkit-keyframes spin {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
+h1{
+  color: white;
+  text-align: center;
+  font-size: 10vh;
+  margin: 0
+}
+
+.flower{
+  position:relative;
+  width:150px;
+  height:300px;
+}
+
+.flower img{
+  width: 100px;
+  opacity: 0.8;
+  position: absolute;
+  -webkit-transform: scale3d(1,.5,1) rotateZ(10deg);
+  -webkit-animation: fall 4s ease-in-out infinite;
+}
+
+@-webkit-keyframes fall{
+  0%   { top:0%; -webkit-transform: scale3d(1,.5,1) rotateZ(60deg); }
+  100%  { top:380%; -webkit-transform: scale3d(1,.2,1) rotateZ(-60deg); }
+}
+
+.button {
+  background-color: #F8E5FB;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  font-size: 2vh;
+  font-weight: 500;
+  height: 4rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 2px 5px;
+  text-transform: uppercase
+}
+
+.button:hover {
+  box-shadow: rgba(255, 255, 255, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FFF3FB;
+  opacity: 0.9
+}
+
+li a{
+  font-size: 22px;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Readex Pro', sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  margin-top: 9vh;
+}
+
+.column {
+  flex: 1;
+  color: white;
+}
+
+#slide{
+  max-height: 70vh;
+  width: 40vw;
+}
+
+#timer{
+  background: white; color: black;
+  text-align: center; font-size: 7vh
+}
+
+h2{
+  margin: 0;
+  margin-top: 20vh
+}
+
+.sign-in {
+    background: rgba(255, 255, 255, 0.25);
+    display: block;
+    border-radius: 40px;
+    width: 40vw;
+    padding: 20px;
+    padding-bottom: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+#sign-username {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+}
+
+#sign-password {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+    font-size: 15px
+}
+
+h3{
+  color: white;
+  font-size: 6vh
+}
+
+.switch{
+  color: white;
+  font-style: italic
+}
+
+.login {
+    background: rgba(255, 255, 255, 0.25);
+    display: block;
+    border-radius: 40px;
+    width: 40vw;
+    padding: 20px;
+    padding-bottom: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+#log-username {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+}
+
+#log-password {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+    font-size: 15px
+}
+  </style>
+
+</head>
+
+<body style="background-color: #C7E6E8">
+	<ul>
+		<li><a href="/"> 🌸 In Season 🌸</a></li>
+	</ul>
+
+	<div class="container">
+		<div class="column">
+			<img src="https://media.discordapp.net/attachments/844417162785456128/919129575747878912/unknown.png?width=667&height=630" id="slide" />
+  </div> 
+
+  <div class="column" id = 'timer'>
+    <h2>Timer</h2>
+    <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
+  </div>
+  
+  <div class="column" style="background: lightpink; text-align: center">
+    <h1 style = "font-size: 5vh; margin-top: 5vh; margin-bottom: 2vh">Posture Check</h2>
+<button type="button" class = "button" style = "padding: 11px 20px;" onclick="init()">Start</button><br/>
+<br/><div id="webcam-container"></div>
+<div id="label-container" style = "margin-top: 15px; margin-bottom: 15px"></div>
+
+<a href = "/notes"><button class="button">Notes</button></a>
+<a href = "/piano"><button class="button">Virtual Piano</button></a>
+
+<script type="text/javascript">
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "https://teachablemachine.withgoogle.com/models/e3FdUi6kZ/";
+
+    let model, webcam, labelContainer, maxPredictions;
+
+    // Load the image model and setup the webcam
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // or files from your local hard drive
+        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // Convenience function to setup a webcam
+        const flip = true; // whether to flip the webcam
+        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        // append elements to the DOM
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    async function loop() {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    // run the webcam image through the image model
+    async function predict() {
+        // predict can take in an image, video or canvas html element
+        const prediction = await model.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+    }
+</script>
+  </div>
+</div>
+
+<script>
+      var trees = new Array ()
+trees[0] = new Image()
+trees[0].src = "https://media.discordapp.net/attachments/844417162785456128/919129575747878912/unknown.png?width=667&height=630"
+trees[1] = new Image()
+trees[1].src = "https://media.discordapp.net/attachments/844417162785456128/919132431766933534/unknown.png?width=722&height=615"
+trees[2] = new Image()
+trees[2].src = "https://media.discordapp.net/attachments/844417162785456128/919141363193368576/unknown.png?width=674&height=630"
+trees[3] = new Image()
+trees[3].src = "https://media.discordapp.net/attachments/844417162785456128/919143900004880384/unknown.png?width=676&height=630"
+
+var move=0
+
+function treeSwap(){
+ if (!document.images)
+  return
+ document.getElementById('slide').src = trees[move].src
+ if (move<3)
+  move++
+ else
+  move=0
+ setTimeout("treeSwap()",5000)
+}
+
+treeSwap()
+
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var hoursLabel = document.getElementById("hours");
+var totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+  hoursLabel.innerHTML = pad(parseInt(totalSeconds / 3600));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+</script>
+
+
+  </body>
+  </html>
+  
+  {% endblock body %}

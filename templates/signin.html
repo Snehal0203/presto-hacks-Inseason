@@ -1,0 +1,260 @@
+{%block body %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>In Season</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="    https://media.discordapp.net/attachments/844417162785456128/919091292540129280/1024px-Emoji_u1f338.png?width=630&height=630">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+
+*{
+  font-family: 'Readex Pro', sans-serif;
+}
+
+body{
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#spin{
+  width: 10vw;
+  margin-left: 45vw;
+  margin-right: 45vw;
+  margin-bottom: 6px;
+  margin-top: -60px;
+		-webkit-animation: spin 5s infinite linear;
+}
+
+@-webkit-keyframes spin {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
+h1{
+  color: white;
+  text-align: center;
+  font-size: 10vh;
+  margin: 0
+}
+
+.flower{
+  position:relative;
+  width:150px;
+  height:300px;
+}
+
+.flower img{
+  width: 100px;
+  opacity: 0.8;
+  position: absolute;
+  -webkit-transform: scale3d(1,.5,1) rotateZ(10deg);
+  -webkit-animation: fall 4s ease-in-out infinite;
+}
+
+@-webkit-keyframes fall{
+  0%   { top:0%; -webkit-transform: scale3d(1,.5,1) rotateZ(60deg); }
+  100%  { top:380%; -webkit-transform: scale3d(1,.2,1) rotateZ(-60deg); }
+}
+
+.button {
+  background-color: #F8E5FB;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  font-size: 2vh;
+  font-weight: 500;
+  height: 4rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 2px 5px;
+  text-transform: uppercase
+}
+
+.button:hover {
+  box-shadow: rgba(255, 255, 255, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FFF3FB;
+  opacity: 0.9
+}
+
+li a{
+  font-size: 22px;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Readex Pro', sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  margin-top: 9vh;
+}
+
+.column {
+  flex: 1;
+  color: white;
+}
+
+#slide{
+  max-height: 70vh;
+  width: 40vw;
+}
+
+#timer{
+  background: white; color: black;
+  text-align: center; font-size: 7vh
+}
+
+h2{
+  margin: 0;
+  margin-top: 20vh
+}
+
+.sign-in {
+    background: rgba(255, 255, 255, 0.25);
+    display: block;
+    border-radius: 40px;
+    width: 40vw;
+    padding: 20px;
+    padding-bottom: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+#sign-username {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+}
+
+#sign-password {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+    font-size: 15px
+}
+
+h3{
+  color: white;
+  font-size: 6vh
+}
+
+.switch{
+  color: white;
+  font-style: italic
+}
+
+.login {
+    background: rgba(255, 255, 255, 0.25);
+    display: block;
+    border-radius: 40px;
+    width: 40vw;
+    padding: 20px;
+    padding-bottom: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+#log-username {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+}
+
+#log-password {
+    display: block;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 11px 30px;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    transition: 0.25s;
+    color: white;
+    font-size: 15px
+}
+</style>
+
+
+  </head>
+  <body style = "background-image: url('https://media.discordapp.net/attachments/844417162785456128/919090640330051665/Untitled_design_43.png?width=1055&height=593')">
+
+  <section class="login">
+        <form action="/go" class="log-in" method="post">
+          {% csrf_token %}
+            <h3 class="title">🌸 Login 🌸</h3>
+
+            <label for="log-username"></label>
+            <input type="text" placeholder="Username" maxlength="20" id="log-username" name="log-username">
+            <label for="log-password"></label>
+            <input type="password" placeholder="Password" maxlength="50" id="log-password" name="log-password"> <br/>
+            <input type="submit" id="submit" class = "button" action="#" style = "padding: 11px 30px; width: 370px; border-radius: 40px;">
+
+          <p><a href = "/signup" class = "switch">I don't have an account.</a></p>
+
+        </form>
+    </section>
+
+  </body>
+  </html>
+
+{% endblock body %}
