@@ -24,4 +24,4 @@ All of these features are super simple for the user and are easy to navigate. Be
 
 
 ** In Season by (Snehal Adbol, Kevin Hwang, Catherine Rasgaitis and Shivani Rajgopal) *
-> “Signlingo” A Vivaldi inspired app for practice productivity.
+> “In Season” A Vivaldi inspired app for practice productivity.
