@@ -4,7 +4,7 @@
 
 As musicians ourselves, we also wanted to design our application to tackle real challenges that musicians face when practicing their instruments. Accordingly, our goal with In Season is to improve a musician's practice productivity, while playing tribute to Vivaldi!**
 
-![home]("https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_thumbnail_photos/001/769/122/datas/medium.png")
+![home](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_thumbnail_photos/001/769/122/datas/medium.png)
 
 
 ## What it does ✨ 
