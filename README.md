@@ -1,4 +1,4 @@
-# Signlingo
+# In Season
 
 **We were inspired by the classical music track, so we wanted to create a project that honored one of our favorite classical composers, Antonio Vivaldi. Vivaldi's "The Four Seasons" is one of his most iconic pieces, so we decided to create a project that used a seasonal theme.
 
